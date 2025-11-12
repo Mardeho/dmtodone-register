@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for DM to Done - Live Training Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+
+    .content-section {
+      padding: 5rem 1.5rem;
+      position: relative;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+      color: white;
+      padding: 1.25rem 3rem;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.6));
+      border: 1px solid rgba(217, 119, 6, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(217, 119, 6, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .presenter-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.7));
+      border: 2px solid rgba(217, 119, 6, 0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .decorative-element {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .accent-line {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #d97706, #f59e0b);
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+
+    .pulse-dot {
+      width: 12px;
+      height: 12px;
+      background: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .countdown-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(245, 158, 11, 0.1));
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section { padding: 2rem 1rem; }
+      .content-section { padding: 3rem 1rem; }
+      .cta-button { padding: 1rem 2rem; font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="decorative-element" style="width: 500px; height: 500px; background: radial-gradient(circle, #f59e0b, transparent); top: -200px; right: -200px;"></div>
+    <div class="decorative-element" style="width: 400px; height: 400px; background: radial-gradient(circle, #d97706, transparent); bottom: -150px; left: -150px;"></div>
+
+    <div style="max-width: 1000px; text-align: center; position: relative; z-index: 10;">
+      <!-- Live Badge -->
+      <div style="margin-bottom: 2rem;">
+        <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.5rem 1.5rem; border-radius: 999px; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(16, 185, 129, 0.5);">
+          <span class="pulse-dot"></span>Live Training Event
+        </span>
+      </div>
+
+      <div class="accent-line"></div>
+      
+      <h1 style="font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem;">
+        <span class="gradient-text">DM to Done</span>
+      </h1>
+      
+      <p style="font-size: 2rem; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.4;">
+        A Sales System That Turns Conversations into Clients—Without Feeling Salesy
+      </p>
+
+      <!-- Event Details Box -->
+      <div class="countdown-box">
+        <div style="font-size: 1rem; color: #fbbf24; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
+          Save the Date
+        </div>
+        <div style="font-size: 2rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.5rem;">
+          November 20, 2025
+        </div>
+        <div style="font-size: 1.3rem; color: #cbd5e1;">
+          5:00 PM PST / 8:00 PM EST
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="#register" class="cta-button">
+        Reserve Your Spot Now
+      </a>
+
+      <p style="margin-top: 1.5rem; color: #94a3b8; font-size: 0.95rem;">
+        Limited spots available • Free training event
+      </p>
+    </div>
+  </section>
+
+  <!-- What You'll Learn Section -->
+  <section class="content-section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="accent-line"></div>
+        <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">
+          <span class="gradient-text">What You'll Learn</span>
+        </h2>
+        <p style="font-size: 1.3rem; color: #cbd5e1; max-width: 700px; margin: 0 auto;">
+          Transform your LinkedIn outreach into a repeatable system that books qualified calls
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">1</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">
+            Identity-Aligned Messaging
+          </h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">
+            Create outreach that sounds like you—not a robot—and builds genuine connections
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">2</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">
+            Natural Conversation Starters
+          </h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">
+            Start real conversations without cold pitches that make people ghost you
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">3</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">
+            Consent-Based Call Invites
+          </h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">
+            Get qualified prospects who actually want to talk to you—no pressure tactics
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">4</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">
+            Follow-Up That Feels Good
+          </h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">
+            Stay top of mind without being pushy—nurture sequences that actually work
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">5</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">
+            Sustainable Outreach System
+          </h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">
+            Build a system that's easy to use and even easier to delegate as you scale
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Your Presenters -->
+  <section class="content-section">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="accent-line"></div>
+        <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">
+          <span class="gradient-text">Meet Your Presenters</span>
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <div class="presenter-card">
+          <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d97706, #f59e0b); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: white;">
+            JO
+          </div>
+          <h3 style="font-size: 1.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">
+            Jori O'Neale
+          </h3>
+          <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 1rem;">
+            Best Selling Author • TEDx Speaker • AI Strategist
+          </p>
+          <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95rem;">
+            AI-powered publishing pioneer helping authors transform spoken content into published books through the "Talk Your Book" methodology
+          </p>
+        </div>
+
+        <div class="presenter-card">
+          <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d97706, #f59e0b); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: white;">
+            LN
+          </div>
+          <h3 style="font-size: 1.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">
+            Luis T. Noriega
+          </h3>
+          <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 1rem;">
+            Sales Systems Expert
+          </p>
+          <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95rem;">
+            Specializing in helping coaches, consultants, and creatives build authentic sales systems that convert
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="content-section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div class="accent-line"></div>
+      <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 2rem;">
+        <span class="gradient-text">This Training Is Perfect For...</span>
+      </h2>
+
+      <div style="display: grid; gap: 1.5rem; text-align: left; margin-bottom: 3rem;">
+        <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(51, 65, 85, 0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">
+            ✓ Coaches who want consistent client flow without chasing leads
+          </p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(51, 65, 85, 0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">
+            ✓ Consultants ready to scale their expertise with authentic lead generation
+          </p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(51, 65, 85, 0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">
+            ✓ Creatives who need a system that feels natural and on-brand
+          </p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(51, 65, 85, 0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">
+            ✓ Small business owners seeking growth without overwhelm
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="content-section" id="register">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <div class="accent-line"></div>
+      <h2 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 2rem; line-height: 1.2;">
+        <span class="gradient-text">Ready to Transform Your Outreach?</span>
+      </h2>
+      
+      <p style="font-size: 1.5rem; color: #cbd5e1; margin-bottom: 3rem; line-height: 1.6;">
+        Join us on November 20th and learn the exact system that turns LinkedIn conversations into booked calls
+      </p>
+
+      <div class="countdown-box" style="margin-bottom: 3rem;">
+        <div style="font-size: 1.1rem; color: #fbbf24; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
+          Mark Your Calendar
+        </div>
+        <div style="font-size: 2.5rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.5rem;">
+          November 20, 2025
+        </div>
+        <div style="font-size: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+          5:00 PM PST / 8:00 PM EST
+        </div>
+        <div style="border-top: 1px solid rgba(217, 119, 6, 0.3); padding-top: 1.5rem; margin-top: 1.5rem;">
+          <p style="color: #e2e8f0; font-size: 1.1rem;">
+            <strong style="color: #fbbf24;">Live Training Event</strong><br/>
+            Free • Interactive • Actionable
+          </p>
+        </div>
+      </div>
+
+      <!-- Registration Form or Link -->
+      <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.7)); border: 2px solid #f59e0b; border-radius: 16px; padding: 3rem; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 2rem;">
+          Register Now to Secure Your Spot
+        </h3>
+        
+        <!-- Replace this with your actual registration form or link -->
+        <a href="mailto:register@dmtodone.com?subject=DM to Done Registration - November 20, 2025" class="cta-button" style="width: 100%; max-width: 400px;">
+          Click Here to Register
+        </a>
+        
+        <p style="margin-top: 1.5rem; color: #94a3b8; font-size: 0.95rem;">
+          You'll receive confirmation details and access link via email
+        </p>
+      </div>
+
+      <p style="color: #94a3b8; font-size: 1rem;">
+        Questions? Email us at <a href="mailto:info@dmtodone.com" style="color: #fbbf24; text-decoration: underline;">info@dmtodone.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background: rgba(15, 23, 42, 0.8); padding: 2rem; text-align: center; border-top: 1px solid rgba(217, 119, 6, 0.2);">
+    <p style="color: #94a3b8; font-size: 0.95rem;">
+      DM to Done Growth System © 2025
+    </p>
+  </footer>
+</body>
+</html>
