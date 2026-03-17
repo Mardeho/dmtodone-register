@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch the Replay — DM to Done Training | Jori O'Neale</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+    .content-section { padding: 5rem 1.5rem; position: relative; }
+    .gradient-text {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+      color: white;
+      padding: 1.25rem 3rem;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+    }
+    .cta-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+    }
+    .cta-button-ghost {
+      background: transparent;
+      color: #fbbf24;
+      padding: 1.25rem 3rem;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid #f59e0b;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+    }
+    .cta-button-ghost:hover {
+      background: rgba(245, 158, 11, 0.1);
+      transform: translateY(-4px);
+    }
+    .feature-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.6));
+      border: 1px solid rgba(217, 119, 6, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      border-color: rgba(217, 119, 6, 0.5);
+      transform: translateY(-4px);
+    }
+    .presenter-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.7));
+      border: 2px solid rgba(217, 119, 6, 0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .decorative-element {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    .accent-line {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #d97706, #f59e0b);
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+    .replay-badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      display: inline-block;
+    }
+    .replay-badge::before {
+      content: '▶';
+      margin-right: 8px;
+      font-size: 0.75rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(245, 158, 11, 0.08));
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+    .offer-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .offer-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.7));
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .offer-card--primary { border: 2px solid #f59e0b; }
+    .offer-card--secondary { border: 1px solid rgba(217, 119, 6, 0.3); }
+    .offer-card h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fbbf24;
+      line-height: 1.2;
+    }
+    .offer-card p {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .offer-price {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #f8fafc;
+    }
+    .offer-price span {
+      font-size: 1rem;
+      color: #94a3b8;
+      font-weight: 400;
+    }
+    .divider-or {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #94a3b8;
+      position: relative;
+    }
+    .divider-or::before, .divider-or::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(217, 119, 6, 0.2);
+      margin: 0 1rem;
+    }
+    @media (max-width: 768px) {
+      .hero-section { padding: 2rem 1rem; }
+      .content-section { padding: 3rem 1rem; }
+      .cta-button { padding: 1rem 2rem; font-size: 1.1rem; }
+      .cta-button-ghost { padding: 1rem 2rem; font-size: 1.1rem; }
+      .offer-split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="decorative-element" style="width: 500px; height: 500px; background: radial-gradient(circle, #f59e0b, transparent); top: -200px; right: -200px;"></div>
+    <div class="decorative-element" style="width: 400px; height: 400px; background: radial-gradient(circle, #d97706, transparent); bottom: -150px; left: -150px;"></div>
+
+    <div style="max-width: 1000px; text-align: center; position: relative; z-index: 10;">
+      <div style="margin-bottom: 2rem;">
+        <span class="replay-badge">Free Training Replay — Watch Now</span>
+      </div>
+
+      <div class="accent-line"></div>
+
+      <h1 style="font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem;">
+        <span class="gradient-text">DM to Done</span>
+      </h1>
+
+      <p style="font-size: 2rem; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.4;">
+        A Sales System That Turns Conversations into Clients — Without Feeling Salesy
+      </p>
+
+      <p style="font-size: 1.1rem; color: #e2e8f0; margin-bottom: 2rem; line-height: 1.6;">
+        Learn the exact system for booking qualified calls from LinkedIn — no ads, no setters, no cold email.
+      </p>
+
+      <!-- EMBEDDED VIDEO PLAYER -->
+      <div style="position: relative; width: 100%; max-width: 860px; margin: 0 auto 1.5rem; border-radius: 16px; overflow: hidden; border: 2px solid rgba(245,158,11,0.35); box-shadow: 0 24px 60px rgba(0,0,0,0.5);">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #0f172a;">
+          <iframe
+            src="https://www.youtube.com/embed/ckP4HRJX0wM"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">
+        Free training &nbsp;·&nbsp; Watch at your own pace &nbsp;·&nbsp; Then scroll down to take action
+      </p>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="content-section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div class="accent-line"></div>
+      <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 2rem;">
+        <span class="gradient-text">This Training Is Perfect For...</span>
+      </h2>
+      <div style="display: grid; gap: 1.5rem; text-align: left; margin-bottom: 3rem;">
+        <div style="background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(51,65,85,0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">✓ Coaches who want consistent client flow without chasing leads</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(51,65,85,0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">✓ Consultants ready to scale their expertise with authentic lead generation</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(51,65,85,0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">✓ Creatives who need a system that feels natural and on-brand</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(51,65,85,0.4)); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px;">
+          <p style="color: #f1f5f9; font-size: 1.2rem; line-height: 1.6;">✓ Small business owners seeking growth without overwhelm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <section class="content-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="accent-line"></div>
+        <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">
+          <span class="gradient-text">What You'll Learn in the Replay</span>
+        </h2>
+        <p style="font-size: 1.3rem; color: #cbd5e1; max-width: 700px; margin: 0 auto;">
+          Transform your LinkedIn outreach into a repeatable system that books qualified calls
+        </p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">1</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">Identity-Aligned Messaging</h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">Create outreach that sounds like you — not a robot — and builds genuine connections</p>
+        </div>
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">2</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">Natural Conversation Starters</h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">Start real conversations without cold pitches that make people ghost you</p>
+        </div>
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">3</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">Consent-Based Call Invites</h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">Get qualified prospects who actually want to talk — no pressure tactics</p>
+        </div>
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">4</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">Follow-Up That Feels Good</h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">Stay top of mind without being pushy — nurture sequences that actually work</p>
+        </div>
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: white;">5</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: #fbbf24; margin-bottom: 1rem;">Sustainable Outreach System</h3>
+          <p style="color: #e2e8f0; line-height: 1.6;">Build a system that's easy to use and even easier to delegate as you scale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTERS -->
+  <section class="content-section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="accent-line"></div>
+        <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">
+          <span class="gradient-text">Meet Your Presenters</span>
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <div class="presenter-card">
+          <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d97706, #f59e0b); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: white;">JO</div>
+          <h3 style="font-size: 1.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">Jori O'Neale</h3>
+          <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 1rem;">Best Selling Author • TEDx Speaker • AI Strategist</p>
+          <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95rem;">AI-powered publishing pioneer helping authors transform spoken content into published books through the "Talk Your Book" methodology</p>
+        </div>
+        <div class="presenter-card">
+          <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d97706, #f59e0b); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: white;">LN</div>
+          <h3 style="font-size: 1.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">Luis Noriega</h3>
+          <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 1rem;">Sales Systems Expert</p>
+          <p style="color: #e2e8f0; line-height: 1.6; font-size: 0.95rem;">Specializing in helping coaches, consultants, and creatives build authentic sales systems that convert</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTER THE REPLAY — NEXT STEPS -->
+  <section class="content-section" id="next-steps">
+    <div style="max-width: 960px; margin: 0 auto; text-align: center;">
+      <div class="accent-line"></div>
+      <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.2;">
+        <span class="gradient-text">Ready to Implement?</span>
+      </h2>
+      <p style="font-size: 1.4rem; color: #cbd5e1; margin-bottom: 1rem; line-height: 1.6;">
+        Choose the path that fits where you are right now.
+      </p>
+      <p style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 4rem;">
+        Both options give you the full DM to Done system — the difference is how much we do alongside you.
+      </p>
+
+      <!-- REAL RESULTS CALLOUT -->
+      <div style="background: linear-gradient(135deg, rgba(217,119,6,0.12), rgba(245,158,11,0.06)); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 2rem 2.5rem; margin-bottom: 4rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 4rem;">
+        <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #fbbf24; margin-bottom: 1rem;">Real Results From the System</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center;">
+          <div>
+            <div style="font-size: 2.4rem; font-weight: 900; color: #f8fafc;">+538</div>
+            <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">New LinkedIn connections in 2 months</div>
+          </div>
+          <div>
+            <div style="font-size: 2.4rem; font-weight: 900; color: #f8fafc;">71%</div>
+            <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">Message response rate</div>
+          </div>
+          <div>
+            <div style="font-size: 2.4rem; font-weight: 900; color: #f8fafc;">$10K+</div>
+            <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">Monthly gross revenue achieved</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-split">
+
+        <!-- OPTION 1: DIY -->
+        <div class="offer-card offer-card--secondary">
+          <div style="background: rgba(245,158,11,0.1); color: #fbbf24; padding: 0.4rem 1.2rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(245,158,11,0.25);">
+            Do It Yourself
+          </div>
+          <h3>DM to Done DIY System</h3>
+          <p>The complete self-paced toolkit. Run the system yourself or hand it off to your VA using the included delegation SOP — no coaching calls required.</p>
+          <ul style="text-align: left; color: #e2e8f0; font-size: 0.95rem; line-height: 2; list-style: none; width: 100%;">
+            <li>✦ &nbsp;DM Scripts &amp; Conversation Templates</li>
+            <li>✦ &nbsp;Client Targeting Workbook</li>
+            <li>✦ &nbsp;Visual Pipeline Map</li>
+            <li>✦ &nbsp;VA Delegation SOP</li>
+            <li>✦ &nbsp;4-Week Implementation Checklist</li>
+            <li>✦ &nbsp;LinkedIn Lead Tracker</li>
+            <li>✦ &nbsp;Instant Google Drive access</li>
+          </ul>
+          <div class="offer-price">$897
+            <span style="display:block; font-size:0.9rem; color:#94a3b8; margin-top:4px;">one-time &nbsp;·&nbsp; instant access</span>
+          </div>
+          <a href="https://buy.stripe.com/eVq6oH9Sr3ID6xR4QW3Je1r" class="cta-button" style="width: 100%;">
+            Get the DIY System — $897
+          </a>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 0.5rem;">No coaching or support included</p>
+        </div>
+
+        <!-- OPTION 2: DFY -->
+        <div class="offer-card offer-card--primary" style="position: relative; overflow: hidden;">
+          <!-- Most popular ribbon -->
+          <div style="position: absolute; top: 18px; right: -28px; background: #d97706; color: white; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 40px; transform: rotate(35deg);">
+            Full Service
+          </div>
+          <div style="background: rgba(217,119,6,0.2); color: #fbbf24; padding: 0.4rem 1.2rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(245,158,11,0.4);">
+            Done For You
+          </div>
+          <h3>DM to Done — Done For You</h3>
+          <p>We build and run the entire system for you. Your profile, your content, your outreach — all optimized and managed by the team so you can focus on closing clients.</p>
+          <ul style="text-align: left; color: #e2e8f0; font-size: 0.95rem; line-height: 2; list-style: none; width: 100%;">
+            <li>✦ &nbsp;Full LinkedIn profile optimization</li>
+            <li>✦ &nbsp;30 days of content, written &amp; posted</li>
+            <li>✦ &nbsp;Custom lead magnet &amp; funnel setup</li>
+            <li>✦ &nbsp;Automations &amp; booking system configured</li>
+            <li>✦ &nbsp;Warm lead outreach managed for you</li>
+            <li>✦ &nbsp;Weekly reporting &amp; performance review</li>
+            <li>✦ &nbsp;All templates, SOPs &amp; tools included</li>
+          </ul>
+          <div style="width: 100%;">
+            <div class="offer-price" style="color: #fbbf24;">$2,500
+              <span style="display:block; font-size:0.9rem; color:#94a3b8; margin-top:4px;">one-time setup fee</span>
+            </div>
+            <div style="font-size: 1.1rem; color: #cbd5e1; font-weight: 600; margin-top: 0.5rem;">
+              + $1,500 <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 400;">/month ongoing management</span>
+            </div>
+          </div>
+          <a href="https://calendly.com/iyhinnertainme/15-minute-chat" class="cta-button" style="width: 100%;" target="_blank" rel="noopener noreferrer">
+            Book a 15-Min Call to Get Started
+          </a>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 0.5rem;">Schedule a free feedback call to discuss fit</p>
+        </div>
+
+      </div>
+
+      <!-- NOT FOR EVERYONE NOTE -->
+      <div style="margin-top: 3rem; padding: 1.5rem 2rem; background: rgba(15,23,42,0.6); border-radius: 10px; border: 1px solid rgba(100,116,139,0.2); max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 3rem;">
+        <p style="color: #64748b; font-size: 0.95rem; line-height: 1.7;">
+          <strong style="color: #94a3b8;">Heads up:</strong> This system is not for those seeking a quick fix or unwilling to do the work. It's built for people ready to invest time and intention into authentic outreach and sustainable client relationships.
+        </p>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <p style="color: #94a3b8; font-size: 1rem;">
+          Questions? Email <a href="/cdn-cgi/l/email-protection#1c756574757272796e687d7572717972685c7b717d7570327f7371" style="color: #fbbf24; text-decoration: underline;"><span class="__cf_email__" data-cfemail="d2bbabbabbbcbcb7a0a6b3bbbcbfb7bca692b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL REPLAY CTA -->
+  <section class="content-section" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 4rem 1.5rem;">
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.2rem; color: #f8fafc;">
+        Haven't Watched the Replay Yet?
+      </h2>
+      <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem;">
+        Start there first — it's free and gives you the full picture before you decide on anything.
+      </p>
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="cta-button">
+        ▶ &nbsp;Watch the Replay — Scroll to Top
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: rgba(15,23,42,0.9); padding: 2rem; text-align: center; border-top: 1px solid rgba(217,119,6,0.2);">
+    <p 
